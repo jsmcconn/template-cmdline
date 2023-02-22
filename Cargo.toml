@@ -1,5 +1,5 @@
 [package]
-name = "test-cmdline"
+name = "template-cmdline"
 version = "0.1.0"
 edition = "2021"
 
@@ -10,6 +10,10 @@ clap = { version = "4.1", features = ["derive"] }
 tracing = "0.1"
 tracing-appender = "0.2"
 tracing-subscriber = "0.3"
+
+[features]
+default = ["color"]
+color = []
 
 [profile.release]
 opt-level = "z"     # Optimize for size.

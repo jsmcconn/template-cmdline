@@ -7,7 +7,8 @@ use tracing_subscriber::{self, filter::LevelFilter, fmt::format::FmtSpan, prelud
 pub fn setup_tracing(args: &Args) -> Option<WorkerGuard> {
     // Initialize layer for console logging
     let tracing_stdout_layer = tracing_subscriber::fmt::layer()
-        //.with_thread_ids(true)
+        .with_thread_ids(true)
+        .with_ansi(cfg!(feature = "color"))
         .with_span_events(FmtSpan::FULL)
         .with_filter(LevelFilter::from_level(match args.verbose {
             0 => tracing::Level::INFO,

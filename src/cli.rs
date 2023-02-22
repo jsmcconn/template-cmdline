@@ -2,6 +2,7 @@ use clap::Parser;
 
 /// Template cli tool
 #[derive(Parser)]
+#[cfg_attr(not(feature = "color"), command(disable_colored_help = true))]
 pub struct Args {
     /*
     // Message string
